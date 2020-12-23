@@ -8,7 +8,6 @@ const bcrypt = require('bcrypt-nodejs')
 
 exports.getUser = async function(req, res){
     const {username} = req.body
-
     try{
         await client.connect()
         const user = await client.db('beer-app').collection('users').findOne({"username": username})
