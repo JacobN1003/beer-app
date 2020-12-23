@@ -5,7 +5,7 @@ const express = require('express')
 const app = express()
 const port = PORT || 5000
 const {getUser} = require('./backend/databaseFunctions')
-const {getBreweries} = require('./backend/beerApiFunctions')
+const {findBreweries} = require('./backend/beerApiFunctions')
 
 app.use(bodyParser.json())
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 app.post('/get_user', getUser)
 
 //Api
-app.get('/get_breweries', getBreweries)
+app.post('/find_breweries', findBreweries)
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))

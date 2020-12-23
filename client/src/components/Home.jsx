@@ -1,18 +1,18 @@
-import React from 'react'
-import useForm from '../hooks/useForm'
+import React, {useState} from 'react'
+import SearchBreweries from './SearchBreweries.js'
+//import useForm from '../hooks/useForm'
 
 export default function Home() {
-    const [formValues, handleChange] = useForm({username: "", email: "", password: ""})  
-    
-    console.log(formValues)
+    //const [formValues, handleChange] = useForm({username: "", email: "", password: ""})  
+
     return (
         <div>
-            <input type="text" name="username" value={formValues.username} onChange={handleChange}/>
-            <input type="text" name="email" value={formValues.email} onChange={handleChange}/>
-            <input type="password" name="password" value={formValues.password} onChange={handleChange}/>
-            <p>username: {" " + formValues.username}</p>
-            <p>email: {" " + formValues.email}</p>
-            <p>password: {" " + formValues.password}</p>
+            {/* <input type="text" value={query} onChange={(e)=>setQuery(e.target.value)}/>
+            <button onClick={()=>onSearch()}>Search</button>
+            {result.map((each, idx)=>(
+                <p key={idx}> {each} </p>
+            ))} */}
+            <SearchBreweries/>
         </div>
     )
 }
