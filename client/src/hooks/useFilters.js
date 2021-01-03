@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
-export default function useForm(formValues) {
-    const [values, setValues] = useState(formValues)
+export function useFilters(filters) {
+    const [values, setValues] = useState(filters)
     return [ 
         values,  
         e => { 

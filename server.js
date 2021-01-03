@@ -1,16 +1,21 @@
 require('dotenv').config()
 const bodyParser = require('body-parser')
-const {PORT} = process.env
 const express = require('express')
+const passport = require('passport')
+//const initializePassport = require('./passport_config')
+const {PORT} = process.env
 const app = express()
 const port = PORT || 5000
-const {getUser} = require('./backend/databaseFunctions')
+const {registerUser} = require('./backend/databaseFunctions')
 const {findBreweries} = require('./backend/beerApiFunctions')
 
+//initializePassport(passport)
 app.use(bodyParser.json())
 
 //Database
-app.post('/get_user', getUser)
+app.post('/register_user', registerUser)
+//app.post('/login_user', loginUser)
+
 
 //Api
 app.post('/find_breweries', findBreweries)
